@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +13,6 @@ import {
   StatusBar,
   StyleSheet,
 } from "react-native";
-
 
 const Data = [
   {
@@ -260,32 +259,27 @@ const Data = [
   },
 ];
 
-
 const Item = ({ item }) => (
   <TouchableOpacity onPress={() => alert(item.about)}>
     <View style={item.isActive ? styles.activeItem : styles.inactiveItem}>
       <Text style={styles.title}>{item.name}</Text>
-      <Text style={styles.title}>{item.balance}</Text>
-      <Text style={styles.title}>{item.age}</Text>
-      <Text style={styles.title}>{item.email}</Text>
+      <Text style={styles.details}>{item.balance}</Text>
+      <Text style={styles.details}>{item.age}</Text>
+      <Text style={styles.details}>{item.email}</Text>
     </View>
   </TouchableOpacity>
 );
 
+
 const App_fl = () => {
   return (
-    <NavigationContainer>
-          <SafeAreaView style={styles.container}>
-
-      <FlatList
-        data={Data}
-        renderItem={({ item }) => <Item item={item} />}
-        keyExtractor={(item) => item.id}
-      />
-    
-    </SafeAreaView>
-    </NavigationContainer>
-
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={Data}
+          renderItem={({ item }) => <Item item={item} />}
+          keyExtractor={(item) => item.id}
+        />
+      </SafeAreaView>
   );
 };
 
@@ -307,7 +301,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    color: "#0000000",
+  },
+  details: {
+    fontSize: 16,
     color: "#0000000",
   },
 });
